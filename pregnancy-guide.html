@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko" style="background:#fffcfa">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<meta name="color-scheme" content="light only"/>
+<title>수진님 & 하이의 임산부 가이드 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gowun+Dodum&display=swap" rel="stylesheet"/>
+<style>
+:root{color-scheme:light only;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+@media(prefers-color-scheme:dark){
+  html{background:#fffcfa!important;}
+  body{background:#fffcfa!important;color:#2c1e1e!important;}
+  nav{background:rgba(255,252,250,0.96)!important;}
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Gowun Dodum',serif;
+  background:#fffcfa;color:#2c1e1e;
+  min-height:100vh;overflow-x:hidden;
+  max-width:480px;margin:0 auto;padding-bottom:80px;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,252,250,0.93);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(242,167,184,0.3);
+  padding:8px 12px;
+  display:flex;gap:4px;flex-wrap:wrap;justify-content:center;
+}
+nav button{
+  background:transparent;border:1.5px solid transparent;
+  border-radius:20px;padding:4px 12px;
+  font-size:0.72rem;color:#9a7878;
+  cursor:pointer;font-family:'Gowun Dodum',serif;
+  white-space:nowrap;transition:all .2s;
+}
+nav button.active{background:#fdf0f4;border-color:#e8889c;color:#2c1e1e;}
+
+/* HERO */
+.hero{
+  text-align:center;padding:48px 20px 24px;
+  background:linear-gradient(180deg,#fdf0f4 0%,#fffcfa 100%);
+}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#e8889c,#d4956a);
+  color:#fff;font-size:0.75rem;padding:5px 18px;
+  border-radius:30px;margin-bottom:18px;letter-spacing:.07em;
+  box-shadow:0 4px 16px rgba(217,96,128,.25);
+}
+h1{font-family:'Nanum Myeongjo',serif;font-size:1.75rem;font-weight:800;line-height:1.35;color:#2c1e1e;margin-bottom:10px;}
+h1 .name{color:#d96080;}
+.hero-sub{font-size:.9rem;color:#9a7878;margin-bottom:28px;}
+
+/* WIDGETS */
+.widget-row{display:flex;gap:10px;padding:0 14px 14px;}
+.w-card{
+  flex:1;background:#fff;border-radius:18px;
+  padding:18px 14px;text-align:center;
+  box-shadow:0 4px 20px rgba(210,140,155,.10);
+}
+.w-card.dday   {border:1.5px solid rgba(242,167,184,.4);}
+.w-card.taedong{border:1.5px solid rgba(168,221,212,.4);}
+.w-ico{font-size:1.6rem;margin-bottom:4px;}
+.w-lbl{font-size:.68rem;color:#9a7878;letter-spacing:.04em;margin-bottom:4px;}
+.w-val{font-family:'Nanum Myeongjo',serif;font-size:2rem;font-weight:800;line-height:1;}
+.dday    .w-val{color:#d96080;}
+.taedong .w-val{color:#5aad9e;}
+.w-sub{font-size:.68rem;color:#9a7878;margin-top:4px;}
+
+.dday-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+.dday-row input[type="date"]{
+  border:1.5px solid #e8889c;border-radius:8px;
+  padding:5px 8px;font-size:.72rem;color:#2c1e1e;
+  background:#fdf0f4;outline:none;
+  font-family:'Gowun Dodum',serif;-webkit-appearance:none;width:140px;
+}
+.dday-row button{
+  background:#e8889c;color:#fff;border:none;
+  border-radius:8px;padding:5px 12px;font-size:.72rem;
+  cursor:pointer;font-family:'Gowun Dodum',serif;
+}
+
+.td-btns{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:10px;}
+.td-btn{
+  width:36px;height:36px;border-radius:50%;border:none;
+  font-size:1.1rem;font-weight:bold;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.td-btn.plus {background:#a8ddd4;color:#5aad9e;}
+.td-btn.minus{background:#f7d4c0;color:#d4956a;}
+.td-reset{
+  border:1.5px solid #cac0ec;background:#f3f1fc;color:#8878cc;
+  border-radius:20px;padding:0 10px;height:28px;font-size:.68rem;
+  cursor:pointer;font-family:'Gowun Dodum',serif;
+}
+.td-track{background:#edf8f6;border-radius:20px;height:8px;overflow:hidden;margin-top:8px;margin-bottom:3px;}
+.td-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#a8ddd4,#5aad9e);transition:width .4s cubic-bezier(.4,0,.2,1);}
+
+/* PROGRESS */
+.prog-wrap{
+  margin:0 14px 14px;background:#fff;border-radius:18px;
+  padding:16px 20px;box-shadow:0 4px 20px rgba(210,140,155,.10);
+}
+.prog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-lbl{font-size:.82rem;color:#5a3a3a;}
+.prog-cnt{font-size:.82rem;color:#d96080;font-weight:bold;}
+.prog-track{background:#fdf6f1;border-radius:20px;height:13px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#e8889c,#5aad9e);transition:width .9s cubic-bezier(.4,0,.2,1);}
+
+/* MESSAGE */
+.msg-section{
+  margin:0 14px 0;
+  background:linear-gradient(135deg,#fdf0f4,#fdf6f1);
+  border:1.5px solid rgba(242,167,184,.35);
+  border-radius:18px;padding:22px 18px;
+  box-shadow:0 4px 20px rgba(210,140,155,.10);
+}
+.msg-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.msg-ico{font-size:1.4rem;}
+.msg-title{font-family:'Nanum Myeongjo',serif;font-size:.98rem;font-weight:700;}
+.msg-body{
+  font-size:.88rem;color:#5a3a3a;line-height:1.85;font-style:italic;
+  border-left:3px solid #e8889c;padding-left:14px;margin-bottom:14px;
+  transition:opacity .35s;
+}
+.msg-btn{
+  background:none;border:1.5px solid #e8889c;border-radius:20px;
+  color:#d96080;font-size:.72rem;padding:5px 16px;
+  cursor:pointer;font-family:'Gowun Dodum',serif;
+}
+
+/* BABY */
+.baby-section{
+  margin:16px 14px 0;background:#fff;border-radius:18px;
+  padding:22px 18px;box-shadow:0 4px 20px rgba(210,140,155,.10);
+}
+.baby-title{font-family:'Nanum Myeongjo',serif;font-size:1rem;font-weight:700;margin-bottom:16px;}
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.slider-lbl{font-size:.75rem;color:#9a7878;white-space:nowrap;}
+.week-slider{flex:1;-webkit-appearance:none;appearance:none;height:8px;border-radius:20px;outline:none;cursor:pointer;}
+.week-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+  background:#d96080;box-shadow:0 2px 8px rgba(217,96,128,.35);cursor:pointer;
+}
+.week-num{font-family:'Nanum Myeongjo',serif;font-size:1.3rem;font-weight:800;color:#d96080;min-width:40px;}
+.baby-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.bc{background:#fdf6f1;border-radius:12px;padding:12px 8px;text-align:center;}
+.bc-e{font-size:1.5rem;display:block;margin-bottom:3px;}
+.bc-l{font-size:.65rem;color:#9a7878;margin-bottom:2px;}
+.bc-v{font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:700;}
+.baby-desc{
+  font-size:.82rem;color:#5a3a3a;line-height:1.75;margin-top:12px;
+  padding:10px 14px;background:#fdf0f4;border-left:3px solid #e8889c;border-radius:10px;
+}
+
+/* SECTIONS */
+.section{padding:0 14px;margin-top:28px;}
+.s-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.s-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.s-title{font-family:'Nanum Myeongjo',serif;font-size:1.05rem;font-weight:700;}
+.s-sub{font-size:.72rem;color:#9a7878;margin-top:2px;}
+
+/* CHECK CARDS */
+.cc{
+  background:#fff;border-radius:16px;
+  padding:13px 15px;display:flex;align-items:flex-start;gap:12px;
+  box-shadow:0 3px 16px rgba(210,140,155,.09);
+  border:1.5px solid transparent;
+  cursor:pointer;margin-bottom:10px;
+  transition:background .25s,border-color .25s;
+  -webkit-user-select:none;user-select:none;
+}
+.cc.done{background:#edf8f6;border-color:#5aad9e;}
+.cc.done .cc-text{text-decoration:line-through;color:#9a7878;}
+.cb{
+  flex-shrink:0;width:26px;height:26px;border-radius:8px;
+  border:2px solid #d4956a;background:#fdf6f1;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;margin-top:2px;transition:all .2s;
+}
+.cc.done .cb{background:#5aad9e;border-color:#5aad9e;}
+.cc-body{flex:1;}
+.cc-tag{display:inline-block;font-size:.63rem;padding:2px 7px;border-radius:10px;margin-bottom:5px;font-weight:bold;letter-spacing:.04em;}
+.cc-text{font-size:.9rem;color:#2c1e1e;transition:all .25s;}
+.cc-sub{font-size:.72rem;color:#9a7878;margin-top:2px;line-height:1.5;}
+.tag-must {background:#fdf0f4;color:#d96080;}
+.tag-daily{background:#fffbec;color:#8a6200;}
+.tag-prep {background:#f3f1fc;color:#8878cc;}
+
+/* FOOD */
+.food-card{border-radius:16px;padding:18px;box-shadow:0 3px 16px rgba(210,140,155,.09);margin-bottom:12px;}
+.food-card.good{background:#edf8f6;border:1.5px solid #5aad9e;}
+.food-card.bad {background:#fff2f4;border:1.5px solid #e8889c;}
+.food-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.food-badge{font-size:.68rem;font-weight:bold;padding:3px 11px;border-radius:20px;letter-spacing:.05em;}
+.food-card.good .food-badge{background:#5aad9e;color:#fff;}
+.food-card.bad  .food-badge{background:#d96080;color:#fff;}
+.food-item{display:flex;align-items:flex-start;gap:8px;font-size:.86rem;margin-bottom:9px;}
+.food-dot{flex-shrink:0;margin-top:8px;width:7px;height:7px;border-radius:50%;}
+.food-card.good .food-dot{background:#5aad9e;}
+.food-card.bad  .food-dot{background:#d96080;}
+.food-sub{font-size:.7rem;color:#9a7878;}
+
+/* TIP */
+.tip{
+  display:flex;gap:12px;align-items:flex-start;
+  background:#fdf6f1;border:1.5px solid #d4956a;
+  border-radius:16px;padding:14px 16px;margin-top:12px;
+}
+.tip-ico{font-size:1.2rem;flex-shrink:0;}
+.tip-txt{font-size:.8rem;color:#5a3a3a;line-height:1.75;}
+
+/* TOAST */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#e8889c,#5aad9e);
+  color:#fff;padding:11px 22px;border-radius:50px;
+  box-shadow:0 6px 24px rgba(200,120,140,.3);
+  font-size:.84rem;z-index:9999;text-align:center;
+  pointer-events:none;white-space:nowrap;
+  opacity:0;transition:opacity .3s;
+}
+#toast.show{opacity:1;}
+
+/* FOOTER */
+footer{
+  text-align:center;padding:40px 20px 20px;
+  border-top:1.5px dashed #e8889c;
+  color:#9a7878;font-size:.75rem;line-height:1.9;margin-top:32px;
+}
+
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.rv.vis{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <button class="active" onclick="goTo('hero',this)">🌸 홈</button>
+  <button onclick="goTo('health',this)">🩺 건강</button>
+  <button onclick="goTo('goods',this)">🧸 용품</button>
+  <button onclick="goTo('mental',this)">🧠 멘탈</button>
+  <button onclick="goTo('food',this)">🥗 식단</button>
+</nav>
+
+<div id="hero" class="hero">
+  <div class="badge">🌸 수진님 &amp; 태명 하이의 가이드</div>
+  <h1><span class="name">수진</span>님과<br>아기 <span class="name">하이</span>의<br>빛나는 여정을 응원해요 🌷</h1>
+  <p class="hero-sub">오늘도 충분히 잘 하고 계세요 💗</p>
+</div>
+
+<div class="widget-row">
+  <div class="w-card dday">
+    <div class="w-ico">🗓️</div>
+    <div class="w-lbl">출산 예정일까지</div>
+    <div class="w-val" id="dday-val">— 일</div>
+    <div class="w-sub" id="dday-sub">예정일을 입력해주세요</div>
+    <div class="dday-row">
+      <input type="date" id="dday-input"/>
+      <button onclick="saveDDay()">저장</button>
+    </div>
+  </div>
+  <div class="w-card taedong">
+    <div class="w-ico">👶</div>
+    <div class="w-lbl">하이의 태동 횟수</div>
+    <div class="w-val" id="td-num">0</div>
+    <div class="w-sub">목표: 10회 이상</div>
+    <div class="td-btns">
+      <button class="td-btn plus"  onclick="changeTd(1)">＋</button>
+      <button class="td-btn minus" onclick="changeTd(-1)">−</button>
+      <button class="td-reset"     onclick="resetTd()">초기화</button>
+    </div>
+    <div class="td-track"><div class="td-fill" id="td-fill" style="width:0%"></div></div>
+    <div class="w-sub" id="td-goal" style="margin-top:2px">0 / 10 회</div>
+  </div>
+</div>
+
+<div class="prog-wrap rv">
+  <div class="prog-head">
+    <span class="prog-lbl">📋 오늘의 체크리스트</span>
+    <span class="prog-cnt"><span id="prog-done">0</span> / <span id="prog-total">0</span> 완료</span>
+  </div>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+</div>
+
+<div class="msg-section rv" style="margin-top:16px">
+  <div class="msg-head">
+    <span class="msg-ico">💌</span>
+    <span class="msg-title">수진님과 하이에게 보내는 응원</span>
+  </div>
+  <div class="msg-body" id="msg-body"></div>
+  <button class="msg-btn" onclick="nextMsg()">✨ 다른 메시지 보기</button>
+</div>
+
+<div class="baby-section rv">
+  <div class="baby-title">🌱 하이의 주차별 성장 가이드</div>
+  <div class="slider-row">
+    <span class="slider-lbl">임신 주차</span>
+    <input type="range" class="week-slider" id="w-slider" min="20" max="30" value="25" oninput="updateBaby(this.value)"/>
+    <span class="week-num"><span id="w-num">25</span>주</span>
+  </div>
+  <div class="baby-cards" id="baby-cards"></div>
+  <div class="baby-desc" id="baby-desc"></div>
+</div>
+
+<div class="section rv" id="health">
+  <div class="s-header">
+    <div class="s-icon" style="background:#fdf0f4">🩺</div>
+    <div><div class="s-title">건강 체크리스트</div><div class="s-sub">정기 검진부터 일상 루틴까지</div></div>
+  </div>
+  <div id="health-grid"></div>
+  <div class="tip">
+    <span class="tip-ico">💡</span>
+    <div class="tip-txt"><strong>즉시 내원 신호:</strong> 심한 두통·시야 흐림, 갑작스런 손발 부종, 심한 복통, 질 출혈</div>
+  </div>
+</div>
+
+<div class="section rv" id="goods">
+  <div class="s-header">
+    <div class="s-icon" style="background:#fdf6f1">🧸</div>
+    <div><div class="s-title">출산·육아 용품 체크리스트</div><div class="s-sub">지금부터 하나씩 준비하면 여유로워요</div></div>
+  </div>
+  <div id="goods-grid"></div>
+</div>
+
+<div class="section rv" id="mental">
+  <div class="s-header">
+    <div class="s-icon" style="background:#f3f1fc">🧠</div>
+    <div><div class="s-title">정신 건강 &amp; 멘탈 케어</div><div class="s-sub">수진님의 마음 건강이 하이에게도 전해져요</div></div>
+  </div>
+  <div id="mental-grid"></div>
+  <div class="tip">
+    <span class="tip-ico">🫂</span>
+    <div class="tip-txt"><strong>2주 이상 우울·불안이 지속되면</strong> 전문가와 상담하세요. 정신건강 위기상담 <strong>1577-0199</strong> (24시간)</div>
+  </div>
+</div>
+
+<div class="section rv" id="food">
+  <div class="s-header">
+    <div class="s-icon" style="background:#edf8f6">🥗</div>
+    <div><div class="s-title">임산부 식단 가이드</div><div class="s-sub">수진님이 먹는 것이 곧 하이의 영양이에요</div></div>
+  </div>
+  <div class="food-card good">
+    <div class="food-head"><span style="font-size:1.2rem">✅</span><span class="food-badge">추천 Good</span></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🍊 비타민C 과일</div><div class="food-sub">철분 흡수율 UP — 귤, 딸기, 키위, 파프리카</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🥩 양질의 단백질</div><div class="food-sub">하이 성장 필수 — 살코기, 두부, 달걀, 연어</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🥛 칼슘 식품</div><div class="food-sub">하이 뼈 발달 — 우유, 멸치, 치즈, 두부</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🥬 짙은 잎채소</div><div class="food-sub">엽산·철분 — 시금치, 브로콜리, 케일</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🫐 항산화 과일·견과류</div><div class="food-sub">블루베리, 아보카도, 호두 (DHA)</div></div></div>
+  </div>
+  <div class="food-card bad">
+    <div class="food-head"><span style="font-size:1.2rem">⚠️</span><span class="food-badge">주의 Bad</span></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🐟 날음식 (회·육회)</div><div class="food-sub">식중독·리스테리아 위험 — 반드시 익혀드세요</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>☕ 과도한 카페인</div><div class="food-sub">하루 200mg 이하 — 커피 1잔이 한계예요</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🌶 맵고 짠 음식</div><div class="food-sub">부종 악화 및 임당 유발 위험</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🐡 심해성 어류</div><div class="food-sub">수은 함량 高 — 상어, 황새치 과다 섭취 주의</div></div></div>
+    <div class="food-item"><span class="food-dot"></span><div><div>🧃 단 음료·가공식품</div><div class="food-sub">임신성 당뇨 위험 — 천연 식품으로 대체하세요</div></div></div>
+  </div>
+  <div class="tip">
+    <span class="tip-ico">🍽️</span>
+    <div class="tip-txt"><strong>하루 3끼 + 간식 1~2회</strong> 규칙적인 식사가 혈당을 안정시켜요.</div>
+  </div>
+</div>
+
+<footer>
+  <div style="font-size:1.3rem;margin-bottom:6px">🌸</div>
+  <p>이 가이드는 일반적인 정보를 제공하며 의학적 진단을 대신하지 않습니다.</p>
+  <p>모든 건강 관련 사항은 담당 산부인과 선생님과 꼭 상의하세요.</p>
+  <br>
+  <p>오늘도 수고한 <strong>수진</strong>님께 💗<br>그리고 하이에게도, 잘 자라줘서 고마워 🌱</p>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+var MESSAGES=[
+  "수진님, 오늘도 하이와 함께 하루를 버텨낸 당신은 정말 대단해요. 배가 무겁고 몸이 힘들어도, 하이는 엄마의 심장 소리를 들으며 안심하고 있답니다. 오늘 하루도 충분히 잘 하셨어요.",
+  "태동이 느껴질 때마다 '나 여기 있어요, 엄마!' 하는 하이의 인사랍니다. 오늘도 그 소중한 신호에 귀 기울여주세요 🌿",
+  "완벽하지 않아도 괜찮아요. 밥을 제때 못 먹었어도, 오늘 운동을 빠졌어도 — 수진님이 오늘을 살아내는 것만으로도 하이에게는 가장 큰 선물이에요.",
+  "몸이 무거워지고 잠도 잘 못 자는 날이 많죠. 그럼에도 매일 하이를 위해 최선을 다하는 수진님, 그 마음 하나하나가 하이에게 고스란히 전해지고 있어요 💕",
+  "출산이 가까워질수록 두려움도 커지는 게 당연해요. 하지만 수진님 곁에는 하이가, 가족이, 그리고 수진님 스스로의 강인함이 있어요. 분명히 잘 해낼 수 있어요.",
+  "햇살 한 줌, 바람 한 점 — 그 모든 것을 하이도 수진님의 감각을 통해 함께 느끼고 있어요. 지금 이 순간이 하이에게도 소중한 추억이 되고 있답니다.",
+  "잘 쉬는 것도 엄마로서 아주 잘 하는 일이에요. 오늘 충분히 쉬어도 돼요 🌙",
+  "하이는 지금 수진님의 웃음소리, 노래, 목소리를 모두 기억하고 있어요. '하이야, 오늘도 사랑해' — 그 말이면 충분해요 🎵"
+];
+
+var BABY={
+  20:{w:"약 300g",l:"약 25cm",e:"🍌",fruit:"바나나",d:"눈썹과 속눈썹이 생기고 손발이 활발하게 움직여요. 청각이 발달해 엄마 목소리를 들을 수 있어요."},
+  21:{w:"약 360g",l:"약 27cm",e:"🥕",fruit:"당근",d:"소화기관이 발달하고 양수를 조금씩 삼키기 시작해요. 피부에 솜털(태지)이 덮이기 시작해요."},
+  22:{w:"약 430g",l:"약 28cm",e:"🌽",fruit:"옥수수",d:"눈꺼풀이 형성되고 입술과 눈썹이 또렷해져요. 청각이 더욱 예민해져 외부 소리에 반응해요."},
+  23:{w:"약 500g",l:"약 29cm",e:"🥭",fruit:"망고",d:"폐가 발달하기 시작해요. 손에 잡는 반사 능력이 생겨 탯줄을 잡기도 해요."},
+  24:{w:"약 600g",l:"약 30cm",e:"🫑",fruit:"피망",d:"폐에 계면활성제가 만들어지기 시작해요. 이 시기부터 생존 가능성이 급격히 높아져요."},
+  25:{w:"약 660g",l:"약 35cm",e:"🥦",fruit:"콜리플라워",d:"모세혈관이 발달해 피부가 붉어 보여요. 뇌가 빠르게 성장하고 손가락이 뚜렷하게 구분돼요."},
+  26:{w:"약 760g",l:"약 36cm",e:"🥬",fruit:"상추",d:"눈이 열리기 시작해요! 빛과 어둠을 감지할 수 있어요. 허파 발달이 빠르게 진행 중이에요."},
+  27:{w:"약 900g",l:"약 37cm",e:"🥦",fruit:"브로콜리",d:"뇌가 급격히 성장하는 시기예요. 숨 쉬는 연습을 시작하고 REM 수면도 해요."},
+  28:{w:"약 1,000g",l:"약 38cm",e:"🍆",fruit:"가지",d:"눈을 뜨고 감을 수 있어요! 이 시기부터 태동이 더 뚜렷하게 느껴져요. 뇌가 주름지기 시작해요."},
+  29:{w:"약 1,150g",l:"약 39cm",e:"🎃",fruit:"호박",d:"머리카락이 자라고 피하지방이 쌓이기 시작해요. 뼈가 단단해지며 칼슘이 많이 필요해요."},
+  30:{w:"약 1,300g",l:"약 40cm",e:"🥥",fruit:"코코넛",d:"눈동자 색이 결정되고 있어요. 뇌로 꿈을 꾸기도 해요. 이제 머리를 아래로 돌릴 준비를 해요."}
+};
+
+var HEALTH=[
+  {id:"h1",cls:"tag-must", tag:"필수 검진",text:"정밀 초음파 예약 및 결과 확인",     sub:"20~24주 기형아 정밀 초음파 — 미리 예약하세요!"},
+  {id:"h2",cls:"tag-must", tag:"필수 검진",text:"임신성 당뇨(임당) 검사 예약",       sub:"24~28주 포도당 부하 검사 — 시기를 놓치지 마세요"},
+  {id:"h3",cls:"tag-daily",tag:"매일",     text:"하이 태동 규칙성 체크하기",          sub:"28주 이후 2시간 내 10회 이상 — 감소 시 즉시 병원 연락"},
+  {id:"h4",cls:"tag-daily",tag:"매일",     text:"체중 증가량 모니터링",              sub:"주당 0.3~0.5kg 증가가 이상적 — 급격한 증가 주의"},
+  {id:"h5",cls:"tag-daily",tag:"매일",     text:"철분제·칼슘제 꾸준히 복용",         sub:"철분제는 공복에, 칼슘제는 식후에 — 동시 복용 금지!"},
+  {id:"h6",cls:"tag-daily",tag:"매일",     text:"튼살 크림 아침저녁 바르기",         sub:"배·허벅지·가슴·엉덩이 꼼꼼히 🧴"}
+];
+var GOODS=[
+  {id:"g1",cls:"tag-prep",tag:"의류·위생", text:"배냇저고리·손수건 세탁 후 보관",   sub:"무형광·무향 세제 사용 후 지퍼백에 넣어 먼지 차단 🌿"},
+  {id:"g2",cls:"tag-prep",tag:"수유 용품", text:"젖병·소독기 리스트업 및 구매",     sub:"유리 vs 플라스틱, 소독기 종류(스팀/UV) 비교해보세요"},
+  {id:"g3",cls:"tag-prep",tag:"소모품",   text:"기저귀·물티슈 — 샘플 먼저 구비",   sub:"피부 타입에 따라 맞는 브랜드가 달라요"},
+  {id:"g4",cls:"tag-prep",tag:"이동 용품", text:"카시트·유모차 비교 시작하기",       sub:"카시트는 출산 전 설치까지 완료! 법적 의무 🚗"},
+  {id:"g5",cls:"tag-prep",tag:"침구·공간", text:"아기 침대·범퍼침대 알아보기",       sub:"공동 침대는 질식 위험 — 독립 수면공간 마련 권장"},
+  {id:"g6",cls:"tag-prep",tag:"위생·케어", text:"신생아 목욕 용품·체온계·손톱가위",  sub:"아기 전용 귀지봉, 코 흡입기도 미리 챙겨두세요"}
+];
+var MENTAL=[
+  {id:"m1",cls:"tag-daily",tag:"매일",   text:"하루 10분 하이와 태담 시간 갖기",        sub:"'하이야, 오늘도 잘 있었어?' 말을 걸어보세요 🎵"},
+  {id:"m2",cls:"tag-must", tag:"소통",  text:"우울감·불안감 가족과 솔직하게 나누기",    sub:"혼자 참지 마세요. 말로 꺼내는 것만으로도 훨씬 가벼워져요 💬"},
+  {id:"m3",cls:"tag-daily",tag:"주 3회",text:"가벼운 산책 or 임산부 요가",              sub:"30분 이내 유산소 운동이 수면 질과 기분을 높여줘요"},
+  {id:"m4",cls:"tag-daily",tag:"매일",  text:"오늘 잘 한 것 1가지 스스로 칭찬하기",     sub:"밥 챙겨 먹은 것도, 비타민 먹은 것도 모두 대단해요 🌟"},
+  {id:"m5",cls:"tag-prep", tag:"준비",  text:"산후우울증에 대해 미리 알아두기",          sub:"흔하고 치료 가능한 질환이에요 — 미리 알면 두렵지 않아요"},
+  {id:"m6",cls:"tag-prep", tag:"소통",  text:"남편과 육아 역할 분담 미리 대화하기",      sub:"구체적일수록 출산 후 갈등이 줄어들어요"}
+];
+
+/* STORAGE */
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function ld(k,d){try{var v=localStorage.getItem(k);return v!==null?JSON.parse(v):d;}catch(e){return d;}}
+
+/* TOAST */
+var toastT;
+function toast(msg,dur){
+  dur=dur||2600;
+  var el=document.getElementById('toast');
+  el.textContent=msg;el.classList.add('show');
+  clearTimeout(toastT);
+  toastT=setTimeout(function(){el.classList.remove('show');},dur);
+}
+
+/* D-DAY */
+function saveDDay(){
+  var v=document.getElementById('dday-input').value;
+  if(!v){toast('날짜를 선택해주세요 📅');return;}
+  sv('pg_dday',v);renderDDay(v);toast('출산 예정일이 저장됐어요 🌸');
+}
+function renderDDay(v){
+  if(!v)return;
+  var today=new Date();today.setHours(0,0,0,0);
+  var due=new Date(v);due.setHours(0,0,0,0);
+  var diff=Math.round((due-today)/86400000);
+  document.getElementById('dday-input').value=v;
+  var vEl=document.getElementById('dday-val');
+  var sEl=document.getElementById('dday-sub');
+  if(diff>0){vEl.textContent='D - '+diff;sEl.textContent=v+' 출산 예정';}
+  else if(diff===0){vEl.textContent='D-Day 🎉';sEl.textContent='오늘이 출산 예정일!';}
+  else{vEl.textContent='D + '+Math.abs(diff);sEl.textContent='축하해요! 하이가 태어났군요 🌟';}
+}
+
+/* 태동 */
+function renderTd(n){
+  document.getElementById('td-num').textContent=n;
+  document.getElementById('td-fill').style.width=Math.min(n/10*100,100)+'%';
+  document.getElementById('td-goal').textContent=n+' / 10 회';
+  if(n>=10)toast('🎉 목표 10회 달성! 하이가 건강하게 잘 있어요 💚',3000);
+}
+function changeTd(d){
+  var n=Math.max(0,ld('pg_td',0)+d);
+  sv('pg_td',n);renderTd(n);
+}
+function resetTd(){sv('pg_td',0);renderTd(0);toast('태동 카운터를 초기화했어요 🔄');}
+
+/* MESSAGE */
+var msgIdx=-1;
+function nextMsg(){
+  var n;
+  do{n=Math.floor(Math.random()*MESSAGES.length);}while(n===msgIdx&&MESSAGES.length>1);
+  msgIdx=n;
+  var el=document.getElementById('msg-body');
+  el.style.opacity='0';
+  setTimeout(function(){el.textContent=MESSAGES[msgIdx];el.style.opacity='1';},200);
+  sv('pg_msg',msgIdx);
+}
+function initMsg(){
+  var s=ld('pg_msg',-1);
+  msgIdx=s>=0?s:Math.floor(Math.random()*MESSAGES.length);
+  document.getElementById('msg-body').textContent=MESSAGES[msgIdx];
+  document.getElementById('msg-body').style.transition='opacity .35s';
+}
+
+/* BABY */
+function updateBaby(week){
+  week=parseInt(week);
+  document.getElementById('w-num').textContent=week;
+  var b=BABY[week];if(!b)return;
+  var pct=((week-20)/10)*100;
+  document.getElementById('w-slider').style.background=
+    'linear-gradient(90deg,#e8889c '+pct+'%,#fdf6f1 '+pct+'%)';
+  document.getElementById('baby-cards').innerHTML=
+    '<div class="bc"><span class="bc-e">'+b.e+'</span><div class="bc-l">크기 비교</div><div class="bc-v">'+b.fruit+'</div></div>'+
+    '<div class="bc"><span class="bc-e">⚖️</span><div class="bc-l">예상 체중</div><div class="bc-v">'+b.w+'</div></div>'+
+    '<div class="bc"><span class="bc-e">📏</span><div class="bc-l">신장</div><div class="bc-v">'+b.l+'</div></div>';
+  document.getElementById('baby-desc').textContent='🌱 '+week+'주 하이: '+b.d;
+  sv('pg_week',week);
+}
+
+/* CHECKLIST */
+function buildGrid(gridId,items){
+  var grid=document.getElementById(gridId);
+  items.forEach(function(item){
+    var el=document.createElement('div');
+    el.className='cc'+(ld('pg_'+item.id,0)?' done':'');
+    el.dataset.id=item.id;
+    el.innerHTML=
+      '<div class="cb">'+(ld('pg_'+item.id,0)?'✓':'')+'</div>'+
+      '<div class="cc-body">'+
+        '<span class="cc-tag '+item.cls+'">'+item.tag+'</span>'+
+        '<div class="cc-text">'+item.text+'</div>'+
+        '<div class="cc-sub">'+item.sub+'</div>'+
+      '</div>';
+    el.addEventListener('click',function(){toggleCard(el,item.id);});
+    grid.appendChild(el);
+  });
+}
+function toggleCard(el,id){
+  var was=el.classList.contains('done');
+  el.classList.toggle('done');
+  el.querySelector('.cb').textContent=was?'':'✓';
+  sv('pg_'+id,was?0:1);
+  updateProgress();
+  if(!was){
+    var c=['잘 하셨어요! ✨','수진님 최고! 💪','완벽해요 🌸','훌륭해요 👏'];
+    if(Math.random()<0.4)toast(c[Math.floor(Math.random()*c.length)],1500);
+  }
+  var all=document.querySelectorAll('.cc').length;
+  var done=document.querySelectorAll('.cc.done').length;
+  if(!was&&done===all)setTimeout(function(){toast('🎉 모든 체크 완료! 오늘도 정말 수고 많았어요 💗',4000);},400);
+}
+function updateProgress(){
+  var all=document.querySelectorAll('.cc').length;
+  var done=document.querySelectorAll('.cc.done').length;
+  document.getElementById('prog-done').textContent=done;
+  document.getElementById('prog-total').textContent=all;
+  document.getElementById('prog-fill').style.width=(all?Math.round(done/all*100):0)+'%';
+}
+
+/* NAV */
+function goTo(id,btn){
+  document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* SCROLL REVEAL */
+function initReveal(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
+    });
+  },{threshold:0.07});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+}
+
+/* INIT */
+window.addEventListener('DOMContentLoaded',function(){
+  var saved=ld('pg_dday',null);
+  if(saved)renderDDay(saved);
+  renderTd(ld('pg_td',0));
+  initMsg();
+  var w=ld('pg_week',25);
+  document.getElementById('w-slider').value=w;
+  updateBaby(w);
+  buildGrid('health-grid',HEALTH);
+  buildGrid('goods-grid',GOODS);
+  buildGrid('mental-grid',MENTAL);
+  updateProgress();
+  initReveal();
+});
+</script>
+</body>
+</html>
